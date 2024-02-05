@@ -1,17 +1,10 @@
-//Complete the Weather API Backend part using openweathermap api
-
-// Progression 1: Create a function and fetch data using "fetch" from openweathermap api and display the data as given in reference image.
-//Complete the Weather API Backend part using openweathermap api
-
-// Progression 1: Create a function and fetch data using "fetch" from openweathermap api and display the data as given in reference image.
-
-function getData() {
+function fetchData() {
   const date = new Date();
   let currentDate = `${date}`;
 
-  const getHeader = document.getElementById('header');
-  const getLocation = document.getElementById('location');
-  const getCurrent = document.getElementById('current');
+  const appHeader = document.getElementById('app-header');
+  const searchBox = document.getElementById('search-box');
+  const weatherDetails = document.getElementById('weather-details');
 
   fetch(
     'https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5b9441056bba2ffb0d1da1631c7fc001'
@@ -47,15 +40,15 @@ function getData() {
       createMinMaxTemp.innerText =
         result.main.temp_max + '°c' + ' / ' + result.main.temp_min + '°c';
 
-      getHeader.append(createInputField);
+      appHeader.append(createInputField);
 
-      getLocation.append(createLocation);
-      getLocation.append(createDate);
+      searchBox.append(createLocation);
+      searchBox.append(createDate);
 
-      getCurrent.append(createTemp);
-      getCurrent.append(createWeather);
-      getCurrent.append(createMinMaxTemp);
+      weatherDetails.append(createTemp);
+      weatherDetails.append(createWeather);
+      weatherDetails.append(createMinMaxTemp);
     });
 }
 
-getData();
+fetchData();
